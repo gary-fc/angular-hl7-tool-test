@@ -1,0 +1,22 @@
+<div class="collapse" id="collapseExample">
+    <ul class="nav">
+        <li class="nav-item">
+            <a [routerLink]="['me/profile']" class="nav-link">
+                <span class="sidebar-mini">MP</span>
+                <span class="sidebar-normal">My Profile</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="nav-link">
+                <span class="sidebar-mini">S</span>
+                <span class="sidebar-normal">Settings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" (click)="logout()" class="nav-link">
+                <span class="sidebar-mini">LG</span>
+                <span class="sidebar-normal">Logout</span>
+            </a>
+        </li>
+    </ul>
+</div>

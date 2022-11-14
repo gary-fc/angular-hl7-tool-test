@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">article</i>
+                </div>
+                <p class="card-title">Messages</p>
+                <p class="card-category">
+                    Total number of current messages:
+                    <span class="card-title">{{
+                        current_status_restriction?.messages_currently
+                        }}</span>
+                </p>
+                <p class="card-category">
+                    Total number of messages limit:
+                    <span class="card-title">{{
+                        current_status_restriction?.message_limit
+                        }}</span>
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="#">Get More Space...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">file_copy</i>
+                </div>
+                <p class="card-title">Message Files</p>
+                <p class="card-category">
+                    Total number of files:
+                    <span class="card-title">{{
+                        current_status_restriction?.groups_currently
+                        }}</span>
+                </p>
+                <p class="card-category">
+                    Total number of files limit:
+                    <span class="card-title">{{
+                        current_status_restriction?.group_limit
+                        }}</span>
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">local_offer</i> Tracked from Google
+                    Analytics
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">mp</i>
+                </div>
+                <p class="card-title">Size limit</p>
+                <p class="card-category">
+                    Limit:
+                    <span class="card-title"
+                    >{{ current_status_restriction?.size_limit }} MB</span
+                    >
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">date_range</i> Last 24 Hours
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

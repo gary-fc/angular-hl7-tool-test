@@ -1,0 +1,6 @@
+export enum GroupMessageEvents {
+    VIEW_GROUP = 'VIEW_GROUP',
+    DELETE_GROUP = 'DELETE_GROUP',
+    DOWNLOAD_GROUP = 'DOWNLOAD_GROUP',
+    UPDATE_GROUP_NAME = 'UPDATE_GROUP_NAME'
+}

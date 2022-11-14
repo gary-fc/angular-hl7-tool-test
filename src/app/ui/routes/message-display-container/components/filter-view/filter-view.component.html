@@ -1,0 +1,72 @@
+<section class="row">
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">search</i>
+                </div>
+                <h4 class="card-title">Value Search</h4>
+            </div>
+            <div class="card-body ">
+                <form method="#" action="#">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="filterValue" (keyup.enter)="sendFilter()" name="filterValue" matInput
+                               placeholder="Enter the value to search" type="text">
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="card-footer ">
+                <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="sendFilter()">Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">filter_alt</i>
+                </div>
+                <h4 class="card-title">Filters</h4>
+            </div>
+            <div class="card-body ">
+                <div
+                        class="col-md-4 filter"
+                        *ngFor="let filter of filterQueue; let i = index"
+                >
+
+                    <div class="alert" [ngClass]="filter.name">
+                        <button
+                                mat-button
+                                type="button"
+                                class="close"
+                                data-dismiss="alert"
+                                aria-label="Close"
+                                (click)="remove_filter(i)">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <span class="txt-filter"><b>{{filter.index}}: {{ filter.value }}</b></span>
+                        <div class="name_filter">
+                            <i class="material-icons">
+                                {{
+                                filter.name == 'free_text_search' ? 'manage_search' :
+                                    filter.name == 'search_by_field_value' ? 'text_fields' :
+                                        filter.name == 'search_by_component_value' ? 'grid_view' :
+                                            filter.name == 'search_by_subcomponent_value' ? 'apps' : 'segment'
+                                }}
+                            </i>
+                            <span>{{filter.name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer ">
+                <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="remove_all_filters()">
+                    Clear All
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,23 @@
+<article class="main-content">
+    <section class="container-fluid">
+        <app-filter-view [smartComponent]="this" [filterQueue]="filters"></app-filter-view>
+
+        <app-main-table-messages [smartComponent]="this"
+                                 [mainMessageTable]="mainMessageTable"></app-main-table-messages>
+
+        <section class="row">
+            <app-message-paging-table class="col-md-4" [smartComponent]="this"
+                                      [messagePagingTable]="messagePagingTable"
+                                      [pagination]="pagination"></app-message-paging-table>
+
+            <app-field-tree-segment class="col-md-8" [smartComponent]="this" [fields]="fields"
+                                    [selected_segment]="selected_segment"
+                                    [pagination]="pagination"></app-field-tree-segment>
+        </section>
+
+
+        <div>
+            <app-recaptcha (token)="getToken($event)"></app-recaptcha>
+        </div>
+    </section>
+</article>

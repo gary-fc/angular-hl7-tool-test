@@ -1,0 +1,17 @@
+<div class="collapse" id="collapseExample">
+    <!-- guest -->
+    <ul class="nav">
+        <li *ngIf="environment.production" class="nav-item">
+            <a href="/auth/register" class="nav-link">
+                <span class="sidebar-mini">R</span>
+                <span class="sidebar-normal">Register</span>
+            </a>
+        </li>
+        <li *ngIf="environment.production" class="nav-item">
+            <a href="/auth/login" class="nav-link">
+                <span class="sidebar-mini">L</span>
+                <span class="sidebar-normal">Login</span>
+            </a>
+        </li>
+    </ul>
+</div>

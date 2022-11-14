@@ -1,0 +1,30 @@
+.row-field {
+    width: 100%;
+    height: 100%;
+}
+
+.col-btn-toggle {
+    width: 50px;
+    border-right: 1px solid black;
+}
+
+.col-field-index {
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid black;
+    font-weight: 400;
+}
+
+.col-field-value {
+    width: 80%;
+    font-weight: 400;
+}
+
+.col-input {
+    padding-left: 40px;
+}
+
+.hide-edit {
+    display: none;
+}

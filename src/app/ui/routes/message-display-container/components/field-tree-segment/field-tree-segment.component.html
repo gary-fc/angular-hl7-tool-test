@@ -1,0 +1,157 @@
+<!-- an hidden div is created to set the position of appearance of the menu-->
+<div
+        style="visibility: hidden; position: fixed"
+        [style.left]="menuTopLeftPosition.x"
+        [style.top]="menuTopLeftPosition.y"
+        [matMenuTriggerFor]="rightMenu"
+></div>
+
+<!-- standard material menu -->
+<mat-menu #rightMenu="matMenu">
+    <ng-template matMenuContent let-item="item">
+        <button id="edit_value" mat-menu-item (click)="editValue(item)">
+            Edit Value
+        </button>
+
+        <button
+                id="search_filter_by_field_value"
+                mat-menu-item
+                (click)="search_filter_by_field_value(item)"
+        >
+            Search Filter By Field Value
+        </button>
+        <button
+                id="search_filter_by_component_value"
+                mat-menu-item
+                (click)="search_filter_by_component_value(item)"
+        >
+            Search Filter By Component Value
+        </button>
+        <button
+                id="search_filter_by_subcomponent_value"
+                mat-menu-item
+                (click)="search_filter_by_subcomponent_value(item)"
+        >
+            Search Filter By Subcomponent Value
+        </button>
+        <button
+                id="free_text_search_filter_with_rigth_click"
+                mat-menu-item
+                (click)="free_text_search_filter_with_rigth_click(item)"
+        >
+            Free Text Search Filter
+        </button>
+        <button
+                id="search_filter_by_value_segment"
+                mat-menu-item
+                (click)="search_filter_by_value_segment(item)"
+        >
+            Search Filter By Value Segment
+        </button>
+    </ng-template>
+</mat-menu>
+
+<div class="card">
+    <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+            <i class="material-icons">text_fields</i>
+        </div>
+        <h4 class="card-title">
+            Total fields:
+            {{ dataSource.data[dataSource.data.length - 1]?.position ?? "0" }}
+        </h4>
+    </div>
+    <div class="card-body">
+        <table *ngIf="dataSource.data.length === 0" style="width: 100%">
+            <tr>
+                <td>
+                    <ngx-skeleton-loader count="10"></ngx-skeleton-loader>
+                </td>
+            </tr>
+        </table>
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <!-- This is the tree node template for leaf nodes -->
+            <mat-tree-node
+                    *matTreeNodeDef="let node"
+                    matTreeNodePadding
+                    id="{{ node.index }}"
+                    (contextmenu)="onRightClick($event, { content: node })"
+                    style="border: 1px solid black"
+            >
+                <!-- use a disabled button to provide padding for tree leaf -->
+                <ng-container class="container-rows-field">
+                    <tr class="row-field">
+                        <th class="col-btn-toggle"></th>
+                        <th class="col-field-index">{{ node.index }}</th>
+                        <th class="col-field-value">
+                            <button mat-icon-button disabled></button>
+                            {{ node.value }}
+                        </th>
+                        <th class="col-input hide-edit">
+                            <input
+                                    [id]="node.index + '-input'"
+                                    type="text"
+                                    value="{{ node.value }}"
+                                    onpaste="false;"
+                                    (keypress)="check($event)"
+                            />
+                        </th>
+                        <th class="col-btn-save hide-edit">
+                            <button
+                                    mat-icon-button
+                                    color="primary"
+                                    aria-label="Example icon-button with a heart icon"
+                                    (click)="saveValue({ content: node })"
+                            >
+                                <mat-icon>save</mat-icon>
+                            </button>
+                        </th>
+                        <th class="col-btn-cancel hide-edit">
+                            <button
+                                    mat-icon-button
+                                    color="warn"
+                                    aria-label="Example icon-button with a heart icon"
+                                    (click)="cancelEdit({ content: node })"
+                            >
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </th>
+                    </tr>
+                </ng-container>
+            </mat-tree-node>
+
+            <!-- This is the tree node template for expandable nodes -->
+            <mat-tree-node
+                    *matTreeNodeDef="let node; when: hasChild"
+                    matTreeNodePadding
+                    (contextmenu)="onRightClick($event, { content: node })"
+                    style="border: 1px solid black"
+            >
+                <ng-container class="container-rows-field">
+                    <tr class="row-field">
+                        <th class="col-btn-toggle">
+                            <button
+                                    mat-icon-button
+                                    matTreeNodeToggle
+                                    [attr.aria-label]="'Toggle ' + node.name"
+                            >
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                    {{
+                                    treeControl.isExpanded(node)
+                                        ? "expand_more"
+                                        : "chevron_right"
+                                    }}
+                                </mat-icon>
+                            </button>
+                        </th>
+                        <th class="col-field-index">{{ node.index }}</th>
+                        <th class="col-field-value">
+                            <button mat-icon-button disabled></button>
+                            {{ node.value }}
+                        </th>
+                    </tr>
+                </ng-container>
+            </mat-tree-node>
+        </mat-tree>
+    </div>
+</div>

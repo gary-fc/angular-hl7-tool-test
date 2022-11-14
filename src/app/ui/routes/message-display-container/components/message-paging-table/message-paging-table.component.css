@@ -1,0 +1,7 @@
+.message {
+    cursor: pointer;
+}
+
+.active-message {
+    background: linear-gradient(60deg, #ab47bc, #8e24aa);
+}

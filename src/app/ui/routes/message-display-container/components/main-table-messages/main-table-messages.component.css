@@ -1,0 +1,7 @@
+.segment {
+    cursor: pointer;
+}
+
+.active-segment {
+    background: linear-gradient(60deg, #ec407a, #d81b60);
+}

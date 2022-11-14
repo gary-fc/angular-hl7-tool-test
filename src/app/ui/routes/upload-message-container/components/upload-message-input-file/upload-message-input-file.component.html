@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-4 ml-auto mr-auto">
+        <div
+                class="fileinput fileinput-new text-center ml-auto mr-auto"
+                data-provides="fileinput"
+        >
+            <div class="card fileinput-new">
+                <div class="card-body">
+                    <label class="fileinput-new thumbnail" for="file"
+                    ><img src="./assets/img/image_placeholder.jpg" alt="..."
+                    /></label>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img
+                            class="w-100 fileinput-preview fileinput-exists thumbnail"
+                            src="./assets/img/image_placeholder.jpg"
+                            alt="..."
+                    />
+                </div>
+                <div class="filename">{{fileName}}</div>
+            </div>
+
+            <div>
+            <span class="btn btn-rose btn-round btn-file">
+              <span class="fileinput-new">Select File</span>
+              <span class="fileinput-exists">Change</span>
+              <input
+                      id="file"
+                      type="file"
+                      name="..."
+                      (change)="getFile($event)"
+                      class="file"
+                      accept=".hl7"
+              />
+            </span>
+                <a
+                        id="btn-remove"
+                        href="#"
+                        class="btn btn-danger btn-round fileinput-exists"
+                        data-dismiss="fileinput"
+                ><i class="fa fa-times"></i> Remove</a
+                >
+            </div>
+            <span
+                    class="fileinput-exists btn btn-success btn-round btn-file"
+                    (click)="uploadFile()"
+            >
+            <span>Upload File</span>
+          </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <app-upload-message-current-state [smartComponent]="this"
+                                          [current_status_restriction]="current_status_restriction"></app-upload-message-current-state>
+
+        <app-upload-message-input-file (getFileEvent)="getFile($event)"
+                                       [smartComponent]="this"></app-upload-message-input-file>
+    </div>
+</div>
+<div>
+    <app-recaptcha (token)="getToken($event)"></app-recaptcha>
+</div>

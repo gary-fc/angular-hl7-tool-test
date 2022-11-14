@@ -1,0 +1,51 @@
+<section class="row">
+    <section class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+                <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                </div>
+
+                <h4 class="card-title">Segments</h4>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                        <tr>
+                            <th *ngFor="let cell of mainMessageTable.headerRow">
+                                {{ cell }}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr
+                                *ngFor="let row of mainMessageTable?.dataRows; let i = index"
+                                [ngClass]="{ 'active-segment': i === 0 }"
+                                [attr.id]="'segment-' + i"
+                                class="segment"
+                                (click)="clickPrincipal(i)"
+                        >
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ row.title_segment }}</td>
+                            <td>{{ row.segment }}</td>
+                        </tr>
+                        <tr *ngIf="mainMessageTable?.dataRows.length === 0">
+                            <td>
+                                <ngx-skeleton-loader count="7"></ngx-skeleton-loader>
+                            </td>
+                            <td>
+                                <ngx-skeleton-loader count="7"></ngx-skeleton-loader>
+                            </td>
+                            <td>
+                                <ngx-skeleton-loader count="7"></ngx-skeleton-loader>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

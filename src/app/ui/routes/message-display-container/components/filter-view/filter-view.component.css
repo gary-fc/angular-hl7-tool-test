@@ -1,0 +1,228 @@
+/* new */
+::ng-deep div.dataTables_wrapper div.dataTables_info {
+    display: none !important;
+}
+
+::ng-deep .dataTables_filter {
+    display: none !important;
+}
+
+::ng-deep .table-responsive {
+    height: 350px !important;
+    overflow-y: auto;
+}
+
+/* new */
+
+
+.container-search {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.container-search .input-group {
+    width: 400px;
+}
+
+.container-search .container-btn-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.container-search .filter {
+    display: flex;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+.container-search p {
+    margin: 0;
+}
+
+.container-search .btn-remove {
+    border: none;
+    width: 50px;
+    height: 100%;
+    background-color: #fc3d5c;
+    border-radius: 5px;
+}
+
+.container-table {
+    width: 90%;
+    max-height: 500px;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-table table {
+    width: 100%;
+}
+
+.row-field {
+    width: 100%;
+    height: 100%;
+}
+
+.col-btn-toggle {
+    width: 50px;
+    border-right: 1px solid black;
+}
+
+.col-field-index {
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.col-field-value {
+    width: 300px;
+}
+
+.col-input {
+    padding-left: 40px;
+}
+
+.hide-edit {
+    display: none;
+}
+
+.press:active {
+    background-color: #f2f2f2;
+}
+
+.active {
+    background-color: #f2f2f2;
+}
+
+.container-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.container-message-paginator {
+    width: 30%;
+}
+
+.container-table-messages {
+    max-height: 200px;
+    overflow: auto;
+    padding: 20px;
+
+}
+
+.container-table-messages table {
+    width: 100%;
+}
+
+.container-table-tree {
+    width: 65%;
+    max-height: 300px;
+    overflow: auto;
+    padding: 20px;
+
+}
+
+.container-table-tree table {
+    width: 100%;
+}
+
+.btn-download {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.container-filters {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+.example-action-buttons {
+    padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container-view .container-message-paginator {
+        display: block;
+        width: 100%;
+    }
+
+    .container-view .container-table-tree {
+        width: 100%;
+    }
+
+}
+
+.name_filter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.txt-filter {
+    color: black;
+}
+
+.close .material-icons {
+    color: black !important;
+}
+
+.free_text_search {
+    background-color: white;
+    border: 2px solid #9c27b0;
+}
+
+.search_by_field_value {
+    background-color: white;
+    border: 2px solid #00bcd4;
+}
+
+.search_by_component_value {
+    background-color: white;
+    border: 2px solid #4caf50;
+}
+
+.search_by_subcomponent_value{
+    background-color: white;
+    border: 2px solid #ff9800;
+}
+
+.search_by_value_segment{
+    background-color: white;
+    border: 2px solid #f44336;
+}

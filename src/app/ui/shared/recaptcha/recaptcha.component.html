@@ -1,0 +1,10 @@
+<re-captcha
+  size="invisible"
+  #captchaRef="reCaptcha"
+  (resolved)="resolved($event)"
+  siteKey="6LcZkjMgAAAAACCtELZPEpg0s2n3f4_MAnYnGJWg"
+></re-captcha>
+<div class="d-none">
+    <button id="btnExecute" (click)="captchaRef.execute()">submit</button>
+    <button id="btnReset" (click)="captchaRef.reset()">reset</button>
+</div>

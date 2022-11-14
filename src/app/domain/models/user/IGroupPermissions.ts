@@ -1,0 +1,8 @@
+export interface IGroupPermissions {
+  groups?: Group[];
+}
+
+export interface Group {
+  id?:   number;
+  name?: string;
+}

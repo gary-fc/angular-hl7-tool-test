@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-header card-header-primary card-header-icon">
+        <div class="card-icon">
+            <i class="material-icons">assignment</i>
+        </div>
+        <h4 class="card-title">
+            Total messages:
+            {{ pagination?.countDocuments ?? "0" }}
+        </h4>
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="text-primary">
+                <tr>
+                    <th *ngFor="let cell of messagePagingTable.headerRow">
+                        {{ cell }}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr
+                        *ngFor="let row of messagePagingTable.dataRows; let i = index"
+                        [ngClass]="{ 'active-message': i === 0 }"
+                        [attr.id]="'message-' + i"
+                        (click)="clickMessages(i)"
+                        class="message"
+                >
+                    <td>{{ (page_num - 1) * page_size + (i + 1) }}</td>
+                    <td>{{ row.message.slice(0, 30) }}</td>
+                    <td>
+                        <button mat-icon-button (click)="downloadMessage(row.id)">
+                            <mat-icon>download</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="messagePagingTable.dataRows.length === 0">
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr *ngIf="messagePagingTable.dataRows.length === 0">
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr *ngIf="messagePagingTable.dataRows.length === 0">
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-block btn-info mt-1" (click)="downloadAllMessages()">Download All</button>
+    </div>
+    <!-- end content-->
+</div>
